@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="../resources/img/favicon.ico" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portes Ouvertes Champagnat</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="css/porteouvertes.css" />
+  
+  </head>
+  <body>
+    <form>
+      <div class="purchase text-center" id="Avis">
+        <h1>Votre avis</h1>
+      </div>
+      <div class="firebase">
+        <div class="Avis">
+          <div class="form-group">
+            <input type="text" id="avisInput" class="form-control" placeholder="Donnez-nous votre avis...">
+          </div>
+          <button id="sendButton" class="btn btn-outline-light btn-block">Envoyer</button>
+        </div>
+      </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCOI-MStVfXzArY5SvKtK2Jq9_q_OdD7tw",
+            authDomain: "selfmadev2-11399.firebaseapp.com",
+            databaseURL: "https://selfmadev2-11399.firebaseio.com",
+            projectId: "selfmadev2-11399",
+            storageBucket: "selfmadev2-11399.appspot.com",
+            messagingSenderId: "157317665021",
+            appId: "1:157317665021:web:00eacaf893f1a914752e94",
+            measurementId: "G-MJ4NK0M9BL"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const avisInput = document.getElementById('avisInput');
+        const sendButton = document.getElementById('sendButton');
+        const database = firebase.database();
+
+        function firebasePush(input) {
+          let message;
+          if (input.value.length > 30) { message = input.value.substring(0,29) + "..." }
+          message = input.value;
+          var avisRef2 = firebase.database().ref('PorteOuverte/Avis/All').push().set(message);
+        }
+
+        sendButton.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (avisInput.value==""||avisInput.value==" "||avisInput.value==null) {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Erreur, avis vide',
+              showConfirmButton: true,
+              timer: 1500
+            })
+            
+          } else {
+            firebasePush(avisInput);
+            avisInput.value = "";
+            Swal.fire({
+              icon: 'success',
+              title: 'Votre avis a été envoyé',
+              showConfirmButton: true,
+              timer: 1500
+            })
+
+          }   
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </body>
+</html>

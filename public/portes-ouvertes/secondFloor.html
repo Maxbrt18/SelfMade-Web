@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="../resources/img/favicon.ico" />
+	<title>Portes Ouvertes - 1</title>
+	<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Plan du Lycée - Étage 1</h1>
+    <div class="dropdown" style="left: 50%;padding-bottom: 50px;padding-top: 50px">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Étage 1
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item" href="firstFloor.html">Étage 0</a>
+          <a class="dropdown-item" href="thirdFloor.html">Étage 2</a>
+        </div>
+      </div>
+    <div class="container1">
+        <img src="img/Plan Lycée 1.png" class="background">
+        <div class="button4" onclick="sendAvis('d109')"><img src="img/add.png" alt="d109" style="cursor:pointer;height: 20px;"></div>
+        <div class="button5" onclick="sendAvis('d108')"><img src="img/add.png" alt="d108" style="cursor:pointer;height: 20px;"></div>
+        <div class="button6" onclick="sendAvis('d107')"><img src="img/add.png" alt="cdi" style="cursor:pointer;height: 20px;"></div>
+        <div class="button7" onclick="sendAvis('Vie Scolaire')"><img src="img/add.png" alt="ludo" style="cursor:pointer;height: 20px;"></div>
+        <div class="button8" onclick="sendAvis('Bureau Brigitte')"><img src="img/add.png" alt="brigitte" style="cursor:pointer;height: 20px;"></div>
+        <div class="button9" onclick="sendAvis('d106')"><img src="img/add.png" alt="pasto" style="cursor:pointer;height: 20px;"></div>
+        <div class="button10" onclick="sendAvis('d105')"><img src="img/add.png" alt="labophysique" style="cursor:pointer;height: 20px;"></div>
+        <div class="button11" onclick="sendAvis('d104')"><img src="img/add.png" alt="labochimie" style="cursor:pointer;height: 20px;"></div>
+        <div class="button12" onclick="sendAvis('d103')"><img src="img/add.png" alt="d103" style="cursor:pointer;height: 20px;"></div>
+        <div class="button13" onclick="sendAvis('d102')"><img src="img/add.png" alt="d102" style="cursor:pointer;height: 20px;"></div>
+        <div class="button14" onclick="sendAvis('d101')"><img src="img/add.png" alt="d101" style="cursor:pointer;height: 20px;"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+    <script src="js/avis.js"></script>
+</body>
+</html>

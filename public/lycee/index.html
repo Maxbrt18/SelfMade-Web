@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- ===== CSS ===== -->
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- ===== BOX ICONS ===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Portes Ouvertes Champagnat</title>
+    </head>
+    <body>
+
+        <!-- OVERLAY -->
+        <div class="overlay first"></div>
+        <div class="overlay second"></div>
+        <div class="overlay third"></div>
+
+        <!-- video modal -->
+        <section class="video-modal">
+
+            <!-- Modal Content Wrapper -->
+            <div id="video-modal-content" class="video-modal-content">
+            
+            <!-- iframe -->
+            <iframe id="youtube" width="100%" height="100%" frameborder="0" allow="autoplay" allowfullscreen src=></iframe>
+                <a href="#" class="close-video-modal">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"x="0"y="0"viewBox="0 0 32 32" style="enable-background:new 0 0 32 32;" xml:space="preserve" width="24" height="24" >
+                    <g id="icon-x-close">
+                        <path fill="#ffffff" d="M30.3448276,31.4576271 C29.9059965,31.4572473 29.4852797,31.2855701 29.1751724,30.980339 L0.485517241,2.77694915 C-0.122171278,2.13584324 -0.104240278,1.13679247 0.52607603,0.517159487 C1.15639234,-0.102473494 2.17266813,-0.120100579 2.82482759,0.477288136 L31.5144828,28.680678 C31.9872448,29.1460053 32.1285698,29.8453523 31.8726333,30.4529866 C31.6166968,31.0606209 31.0138299,31.4570487 30.3448276,31.4576271 Z" id="Shape"></path>
+                        <path fill="#ffffff" d="M1.65517241,31.4576271 C0.986170142,31.4570487 0.383303157,31.0606209 0.127366673,30.4529866 C-0.12856981,29.8453523 0.0127551942,29.1460053 0.485517241,28.680678 L29.1751724,0.477288136 C29.8273319,-0.120100579 30.8436077,-0.102473494 31.473924,0.517159487 C32.1042403,1.13679247 32.1221713,2.13584324 31.5144828,2.77694915 L2.82482759,30.980339 C2.51472031,31.2855701 2.09400353,31.4572473 1.65517241,31.4576271 Z" id="Shape"></path>
+                    </g>
+                </svg>
+                </a>
+            </div>
+            <div class="overlay"></div>
+        </section>
+        
+
+        <!-- CHAT -->
+        <a class="float" id="click" onclick="onChatClicked(false)">
+            <i class='bx bx-chat'></i>
+        </a>
+        <div class="wrapper" id="chat"></div>
+
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">Portes Ouvertes</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Accueil</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">À propos</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Spécialités</a></li>
+                        <li class="nav__item"><a href="#portfolio" class="nav__link">Le cadre</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contacts</a></li>
+                    </ul>
+                </div>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home" id="home">
+                <div class="home__container bd-grid">
+                    <h1 class="home__title"><span>CHAMPAGNAT</span><br>Portes Ouvertes</h1>
+                    <h1 class="home__subtitle">Créé par nos lycéens</h1>
+                    <div class="home__scroll">
+                        <a href="#about" class="home__scroll-link"><i class='bx bx-up-arrow-alt' ></i>Scroll down</a>
+                    </div>
+
+                    <!--<img src="assets/img/perfil.png" alt="" class="home__img">-->
+                </div>
+            </section>
+            
+            <!--===== ABOUT =====-->
+            <section class="about section" id="about">
+                <h2 class="section-title">À Propos</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/school.jpg">
+                    </div>
+                    <div>
+                        <h2 class="about__subtitle">Lycée Champagnat</h2>
+                        <span class="about__profession">Établissemenent privé</span>
+                        <p class="about__text">Le Lycée Champagnat, établissement catholique sous contrat d’association avec l’Etat, reçoit actuellement près de 600 élèves dans ses filières générales et technologiques.</p>
+
+                        <!--<div class="about__social">
+                            <a href="#" class="about__social-icon"><i class='bx bxl-instagram' ></i></a>
+                        </div>-->
+                    </div>
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Options</h2>
+
+                <div class="skills__container bd-grid">
+                    <div class="skills__box">
+                        <h3 class="skills__subtitle">Terminale Générale</h3>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">Mathématiques</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">Physique-chimie</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">NSI (Numérique et Sciences Informatiques)</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">SVT (Sciences de la Vie et de la Terre)</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">SES (Sciences Économiques et Sociales)</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">Histoire-géo, géopolitique et sciences politiques</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">Langues, littératures et cultures étrangères</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">Humanité littérature philosophie</a></span>
+                        
+                        <h3 class="skills__subtitle">Technologiques</h3>
+
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">STI2D (Sciences et Technologies de l’Industrie et du Développement Durable)</a></span>
+                        <span class="skills__name"><a href="https://www.youtube.com/watch?v=C-N_2cycFCQ" data-youtube-id="C-N_2cycFCQ" class=" button primary js-trigger-video-modal">STMG (Sciences et Technologies du Management et de la Gestion)</a></span>
+                    </div>
+
+                    <div class="skills__img">
+                        <img src="assets/img/skill.jpg" alt="">
+                    </div>
+                </div>
+            </section>
+
+            <!--===== PORTFOLIO =====-->
+            <section class="portfolio section" id="portfolio">
+                <h2 class="section-title">Le Cadre</h2>
+
+                <div class="portfolio__container bd-grid">
+                    <div class="portfolio__img">
+                        <img src="assets/img/work1.jpg" alt="">
+
+                        <div class="portfolio__link">
+                            <a class="portfolio__link-name">Le lycée et le parc</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/img/work2.jpg" alt="">
+
+                        <div class="portfolio__link">
+                            <a class="portfolio__link-name">L'accueil</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/img/work3.jpg" alt="">
+
+                        <div class="portfolio__link">
+                            <a class="portfolio__link-name">Les couloirs</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/img/work4.jpg" alt="">
+
+                        <div class="portfolio__link">
+                            <a class="portfolio__link-name">Salle de permanence</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/img/work5.jpg" alt="">
+
+                        <div class="portfolio__link">
+                            <a class="portfolio__link-name">Salle de TP</a>
+                        </div>
+                    </div>
+                    <div class="portfolio__img">
+                        <img src="assets/img/work6.jpg" alt="">
+
+                        <div class="portfolio__link">
+                            <a class="portfolio__link-name">Salle de cours</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contacts</h2>
+
+                <div class="contact__container bd-grid">
+                    <div class="contact__info">
+                        <h3 class="contact__subtitle">ADRESSE MAIL</h3>
+                        <span class="contact__text">resplycee@champagnat-stsymphorien.eu</span>
+
+                        <h3 class="contact__subtitle">TEL</h3>
+                        <span class="contact__text">04 78 48 43 07 </span>
+
+                        <h3 class="contact__subtitle">ADRESSE</h3>
+                        <span class="contact__text">245 rue André Loste
+                            69590 St Symphorien sur Coise</span>
+                    </div>
+
+                    <form action="" class="contact__form">
+                        <div class="contact__inputs">
+                            <input type="text" placeholder="Nom" class="contact__input">
+                            <input type="mail" placeholder="Adresse mail" class="contact__input">
+                        </div>
+
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+
+                        <input type="submit" value="Envoyer" class="contact__button">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!--===== FOOTER =====-->
+        <footer class="footer section">
+            <div class="footer__container bd-grid">
+                <div class="footer__data">
+                    <h2 class="footer__title">CHAMPAGNAT</h2>
+                    <p class="footer__text">Ce site a été créé par nos lycéens.</p>
+                </div>
+
+                <div class="footer__data">
+                    <h2 class="footer__title">NAVIGUER</h2>
+                    <ul>
+                        <li><a href="#home" class="footer__link">Accueil</a></li>
+                        <li><a href="#about" class="footer__link">À propos</a></li>
+                        <li><a href="#skills" class="footer__link">Spécialités</a></li>
+                        <li><a href="#portfolio" class="footer__link">Le cadre</a></li>
+                        <li><a href="#Contact" class="footer__link">Contacts</a></li>
+                    </ul>
+                </div>
+
+
+
+            </div>
+        </footer>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+            https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+         <!-- GSAP -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>

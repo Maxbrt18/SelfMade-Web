@@ -1,0 +1,189 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+}
+
+body{
+    background: linear-gradient(to right, #f857a6, #ff5858);
+	font-family: Arial;
+	background-repeat: no-repeat;
+}
+
+h1 {
+    text-align: center;
+	font-size: 50px;
+	color: white;
+	padding-top: 30px;
+}
+
+.container1 {
+    position: relative;
+    left: 50%;
+    transform: translateX(-32%);
+}
+
+.background  {
+    overflow:auto;
+	display: inline-block;
+	-webkit-user-drag: none;
+	-khtml-user-drag: none;
+	-moz-user-drag: none;
+	-o-user-drag: none;
+}
+.background {
+    width: 660px;
+}
+
+.button1 {
+	position: absolute;
+	left: 175px;
+	top: 65px;
+	z-index: 1;
+}
+.button2 {
+	position: absolute;
+	left: 175px;
+	top: 166px;
+	z-index: 1;
+}
+.button3 {
+	position: absolute;
+	left: 255px;
+	top: 305px;
+	z-index: 1;
+}
+
+.button4 {
+	position: absolute;
+	left: 18px;
+	top: 10px;
+	z-index: 1;
+}
+
+.button5 {
+	position: absolute;
+	left: 18px;
+	top: 43px;
+	z-index: 1;
+}
+.button6 {
+	position: absolute;
+	left: 23px;
+	top: 85px;
+	z-index: 1;
+}
+.button7 {
+	position: absolute;
+	left: 206px;
+	top: 81px;
+	z-index: 1;
+}
+.button8 {
+	position: absolute;
+	left: 177px;
+	top: 180px;
+	z-index: 1;
+}
+.button9 {
+	position: absolute;
+	left: 297px;
+	top: 111px;
+	z-index: 1;
+}
+.button10 {
+	position: absolute;
+	left: 386px;
+	top: 107px;
+	z-index: 1;
+}
+.button11 {
+	position: absolute;
+	left: 476px;
+	top: 106px;
+	z-index: 1;
+}
+.button12 {
+	position: absolute;
+	left: 517px;
+	top: 202px;
+	z-index: 1;
+}.button13 {
+	position: absolute;
+	left: 517px;
+	top: 235px;
+	z-index: 1;
+}
+.button14 {
+	position: absolute;
+	left: 517px;
+	top: 267px;
+	z-index: 1;
+}.button15 {
+	position: absolute;
+	left: 45px;
+	top: 18px;
+	z-index: 1;
+}
+.button16 {
+	position: absolute;
+	left: 45px;
+	top: 72px;
+	z-index: 1;
+}
+.button17 {
+	position: absolute;
+	left: 50px;
+	top: 128px;
+	z-index: 1;
+}.button18 {
+	position: absolute;
+	left: 176px;
+	top: 72px;
+	z-index: 1;
+}
+.button19 {
+	position: absolute;
+	left: 264px;
+	top: 72px;
+	z-index: 1;
+}
+.button20 {
+	position: absolute;
+	left: 428px;
+	top: 72px;
+	z-index: 1;
+}
+.button21 {
+	position: absolute;
+	left: 503px;
+	top: 72px;
+	z-index: 1;
+}
+.button22 {
+	position: absolute;
+	left: 599px;
+	top: 72px;
+	z-index: 1;
+}
+.button23 {
+	position: absolute;
+	left: 578px;
+	top: 248px;
+	z-index: 1;
+}
+.button24 {
+	position: absolute;
+	left: 578px;
+	top: 305px;
+	z-index: 1;
+}
+.button25 {
+	position: absolute;
+	left: 578px;
+	top: 355px;
+	z-index: 1;
+}
+

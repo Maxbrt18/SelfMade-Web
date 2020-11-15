@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="../resources/img/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SelfMade - Mobile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="../resources/css/oldstyle.css" />
+    <link rel="stylesheet" href="../resources/css/oldmobile-style.css">
+  
+  </head>
+  <body>
+    <main>
+        <div class="table">
+            <main><br>
+                <div class="bar"><input type="image" src="../resources/img/add.svg" style="height: 25px;float: left;" onclick="card()"><input type="image" src="../resources/img/avis.svg" style="height: 25px;float: right;" onclick="avis()"></div></div>
+                <div class="top-bar">
+                    <div class="ios13-segmented-control">
+                        <span class="selection"></span>
+                        <div class="option">
+                            <div>
+                                <input type="radio" id="today" name="sample" value="Today" checked="checked" onclick="segmentedPressed()">
+                                <label for="today"><span>Aujourd'hui</span></label>
+                            </div>
+                        </div>
+            
+                        <div class="option">
+                            <input type="radio" id="tomorrow" name="sample" value="Tomorrow" onclick="segmentedPressed()">
+                            <label for="tomorrow"><span>Demain</span></label>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <br>
+            <table class="table" id="menu"></table>
+        </div>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="card">
+            <div id="caption"></div>
+        </div>    
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+    <script>
+        var day;
+        var todayName;
+        let params = new URLSearchParams(document.location.search.substring(1));
+
+        if (document.getElementById('today').checked==true) {
+            day = document.getElementById('today').value;       
+        }  else if (document.getElementById('tomorrow').checked==true) { 
+            day = document.getElementById('tomorrow').value; 
+        }
+
+        var todayName = verifyDay();
+
+        function createElement(elem) {
+            var template = document.createElement("template");
+            template.innerHTML=elem.trim();
+            return template.content.firstChild;
+        }
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCOI-MStVfXzArY5SvKtK2Jq9_q_OdD7tw",
+            authDomain: "selfmadev2-11399.firebaseapp.com",
+            databaseURL: "https://selfmadev2-11399.firebaseio.com",
+            projectId: "selfmadev2-11399",
+            storageBucket: "selfmadev2-11399.appspot.com",
+            messagingSenderId: "157317665021",
+            appId: "1:157317665021:web:00eacaf893f1a914752e94",
+            measurementId: "G-MJ4NK0M9BL"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+
+        $(document).ready(function() {
+            noSelf(verifyDay(), true);
+        })
+
+        function segmentedPressed() {
+            const myNode = document.getElementById("menu");
+            while (myNode.lastElementChild) {
+                myNode.removeChild(myNode.lastElementChild);
+            }
+            var day;
+            if (document.getElementById('today').checked==true) { noSelf(verifyDay(), true);
+            } else { noSelf(verifyDay(), false); }
+        }
+
+        function verifyDay() {
+            if (document.getElementById('today').checked==true) {
+                day = document.getElementById('today').value;       
+            }  else if (document.getElementById('tomorrow').checked==true) { 
+                day = document.getElementById('tomorrow').value; 
+            }
+            if (day=="Today") {
+                var d = new Date();
+                var weekday = ["LundiNext", "1 - Lundi", "2 - Mardi", "MercrediNext", "3 - Jeudi", "4 - Vendredi", "LundiNext"];
+                return weekday[d.getDay()];
+            } else if (day=="Tomorrow") {
+                var d = new Date();
+                var weekday = ["1 - Lundi", "2 - Mardi", "MercrediNext", "3 - Jeudi", "4 - Vendredi", "LundiNext", "LundiNext"];
+                return weekday[d.getDay()];
+                }
+            }
+
+            function pasDeSelf(hauteur) {
+                let userContainer = document.getElementById("menu");
+                let el = createElement(`<tr style="overflow: hidden;height: ${hauteur}px;white-space: nowrap;">
+                <td style="text-align:center;"><img src="../resources/img/noSelf.svg" style="vertical-align: middle;margin: auto; max-height: 300px;"></td></tr>`);
+                userContainer.appendChild(el);
+            }
+
+            function noSelf(todayName, like) {
+                //Si jour sans self...
+                let hauteur = ($(window).height())/6.5;
+                if (todayName == "MercrediNext" || todayName == "LundiNext") { 
+                    pasDeSelf(hauteur);
+                //Sinon récupérer le menu du jour
+                } else {
+                    var today = new Date();
+                    var dd = today.getDate();
+                    var mm = today.getMonth() + 1;
+                    if (dd < 10) { dd = '0' + dd; } 
+                    if (mm < 10) { mm = '0' + mm; } 
+                    var dateddMM = dd + '-' + mm;
+
+                    let typePlat = ["1) Entrée", "2) EntréeCh", "3) Plat", "4) Fromage", "5) Dessert",]
+                    var rootRef = firebase.database().ref('Etablissements').child('Champagnat');
+                    rootRef.once("value", snap => {
+                        
+                        for (let i = 0; i < typePlat.length; i++) {
+                            let value = snap.child('Menu').child(todayName).child(typePlat[i]).val() ;
+                            let valueIns = snap.child('Menu').child(todayName).child(typePlat[i]).val().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                            let likes = snap.child('Likes').child(dateddMM).child(typePlat[i]).child('Like').val() || 0;
+                            let nbrlike = snap.child('Likes').child(dateddMM).child(typePlat[i]).child('1 - NbrAvis').val() || 1;
+                            let pourc = Math.round((likes * 100) / (nbrlike));
+                            let userContainer = document.getElementById("menu");
+                            if (value=="Pas d'entrée") {pasDeSelf(hauteur);break}
+                            if (like==true) {
+                                let el = createElement(`<tr>
+                                <td style="text-align:left;width: 150px"><img src="https://firebasestorage.googleapis.com/v0/b/selfmadev2-11399.appspot.com/o/resized%2F${valueIns}_640x360.jpg?alt=media&token=39328edc-7351-4a06-a441-4ab745897f9f" onerror="javascript:this.src='plats/Couverts.png'" style="height:${hauteur-35}px;object-fit: cover;width: 80px;border-radius: 10px;"></img></td>
+                                <div class="tableValue" style="text-align:center"><td style="text-align:center; vertical-align: middle; font-size: 25px;">${value}</td><button></button></div>
+                                <td style="text-align:right;width: 30px">
+                                    <div style="text-align:center">
+                                        <p style="font-size: 12px;">${pourc}%</p>
+                                        <input onclick="Like('${typePlat[i]}')" type="image" src="../resources/img//Like.svg" width="20px"><br>
+                                        <input onclick="DisLike('${typePlat[i]}')" type="image" src="../resources/img/DisLike.svg" width="20px">
+                                    </div>
+                                </td>
+                                </tr> `);
+                                userContainer.appendChild(el);
+                            } else {
+                                let el = createElement(`<tr style="overflow: hidden;height: ${hauteur}px;white-space: nowrap;">
+                                    <td style="text-align:left;width: 150px"><img src="https://firebasestorage.googleapis.com/v0/b/selfmadev2-11399.appspot.com/o/resized%2F${valueIns}_640x360.jpg?alt=media&token=39328edc-7351-4a06-a441-4ab745897f9f"" onerror="javascript:this.src='plats/Couverts.png'" style="height:${hauteur-35}px;object-fit: cover;width: 80px;;object-fit: cover;width: 130px;border-radius: 10px;"></img></td>
+                                <td style="text-align:center;font-size: 25px;vertical-align: middle">${value}</td></tr> `);
+                                userContainer.appendChild(el);
+                            }
+                            
+                        }
+                    }); 
+                }
+            }
+            const getWindowHeight = () => {
+                return Math.max(
+                    document.body.scrollHeight,
+                    document.documentElement.scrollHeight,
+                    document.body.offsetHeight,
+                    document.documentElement.offsetHeight,
+                    document.documentElement.clientHeight
+                );
+                };
+
+            function Like(typePlat) {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1;
+                if (dd < 10) { dd = '0' + dd; } 
+                if (mm < 10) { mm = '0' + mm; } 
+                var dateddMM = dd + '-' + mm;
+
+                var rootRef = firebase.database().ref('Etablissements').child('Champagnat').child('Likes').child(dateddMM).child(typePlat);
+                rootRef.once('value', snap => {
+                    let nbrlike = (snap.child("1 - NbrAvis").val()) + 1 || 0;
+                    let Like = (snap.child("Like").val()) + 1 || 0;
+                    firebase.database().ref('Etablissements').child('Champagnat').child('Likes').child(dateddMM).child(typePlat).set({
+                        '1 - NbrAvis': nbrlike,
+                        'Like': Like
+                    });
+                });
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Vous avez liké...',
+                    showConfirmButton: true,
+                    timer: 1500
+                })
+            }
+            function DisLike(typePlat) {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth() + 1;
+                if (dd < 10) { dd = '0' + dd; } 
+                if (mm < 10) { mm = '0' + mm; } 
+                var dateddMM = dd + '-' + mm;
+                
+                var rootRef = firebase.database().ref('Etablissements').child('Champagnat').child('Likes').child(dateddMM).child(typePlat);
+                rootRef.once('value', snap => {
+                    let nbrlike = (snap.child("1 - NbrAvis").val()) + 1 || 0;
+                    let Like = (snap.child("Like").val()) || 0;
+                    firebase.database().ref('Etablissements').child('Champagnat').child('Likes').child(dateddMM).child(typePlat).set({
+                        '1 - NbrAvis': nbrlike,
+                        'Like': Like
+                    });
+                });
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Vous avez disliké...',
+                    showConfirmButton: true,
+                    timer: 1500
+                })
+            }
+
+            async function avis() {
+                var rootRef = firebase.database().ref('Etablissements').child('Champagnat').child('Avis');
+                const { value: avis} = await Swal.fire({
+                        title: 'Entrez votre avis',
+                        input: 'text',
+                        inputPlaceholder: 'Dites ce que vous pensez du self...'
+                    })
+                rootRef.once('value', snap => {
+                    if (avis) { firebase.database().ref('Etablissements').child('Champagnat').child('Avis').push().set(avis); } 
+                })
+            }
+
+            async function card() {
+                let cardNumber = params.get("cn")
+                if (cardNumber==null || cardNumber=="null" | cardNumber=="" | cardNumber=="undefined"){
+                    const { value: cardNumberInput} = await Swal.fire({
+                        title: 'Entrez votre numéro de carte',
+                        input: 'text',
+                        inputPlaceholder: 'Numéro de carte'
+                    })
+
+                    if (cardNumberInput) {
+                        let newUrl="index.html?cn="+ cardNumberInput;
+                        window.location.replace(newUrl);
+                    }
+                    
+                } else {
+                    // Get the modal
+                    var modal = document.getElementById("myModal");
+
+                    // Get the image and insert it inside the modal - use its "alt" text as a caption
+                    var modalImg = document.getElementById("card");
+                    modal.style.display = "block";
+                    modalImg.src = "https://barcode.tec-it.com/barcode.ashx?data="+ params.get("cn") + "&code=Code25IL&multiplebarcodes=false&translate-esc=false&unit=Fit&dpi=600&imagetype=Gif&rotation=0&color=%23000000&bgcolor=%23ffffff&qunit=Mm&quiet=0";
+
+                    // Get the <span> element that closes the modal
+                    var span = document.getElementsByClassName("close")[0];
+
+                    // When the user clicks on <span> (x), close the modal
+                    span.onclick = function() { 
+                        modal.style.display = "none";
+                    }
+                } 
+            }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready(function() {
+
+        $(".ios13-segmented-control").on("change", function() {
+            $(".ios13-segmented-control .option input").each(function(i) {
+                if ($(this).is(":checked")) $(".ios13-segmented-control .selection").css("transform","translateX(" + ($(this).outerWidth() * i) + "px)");
+            });
+        });
+    });
+    </script>
+
+  </body>
+</html>
